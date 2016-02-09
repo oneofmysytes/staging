@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJS: Shopping List Application Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://return-true.com/demos/shoppingForAngularJS/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <script src="js/app.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container" ng-controller="ShopCtrl">
+      <h1>Grocery List Beta</h1>
+      <div class="main">
+        
+       <form class="form-horizontal" ng-submit="addItem()">
+          <input type="text" ng-model="itemEntry" ng-model-instant placeholder="Type and hit Enter to add item">
+        </form>
+
+        <ul class="unstyled">
+          <li ng-repeat="item in items">
+            <input type="checkbox" id="item-{{item.id}}" ng-model="item.bought">
+            <label for="item-{{item.id}}" class="{{isBought(item.bought)}}">{{item.text}}<span></span></label>
+          </li>
+        </ul>
+        
+      </div>
+
+      <div class="footer">
+        <button class="btn btn-large btn-danger" ng-click="clearBought()">Remove Bought</button>
+
+      </div>
+      <p style="color:white;text-align:center;font-size:1.3em;">Tap the form, list grocery items to form a list. When You have picked up the item, tap the checkbox and it goes away. Working on an export function or texting method.</p>
+    </div>
+
+        
+        
+        
+    </div>
+  </body>
+</html>
